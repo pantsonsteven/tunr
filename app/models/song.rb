@@ -11,7 +11,8 @@ class Song < ActiveRecord::Base
       {
         :itunes_artist_id => song['artistId'],
         :itunes_song_id => song['trackId'],
-        :title => song['trackName']
+        :title => song['trackName'],
+        :artwork_url => song['artworkUrl100']
       }
     end
   end
