@@ -29,5 +29,6 @@
 }
 
 .trash {
-   float: right;
+   float: left;
+   margin-right: 10px;
 }
