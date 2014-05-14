@@ -1,29 +1,32 @@
-
 <div class="container">
 
+    <div class="sixteen columns">
+        <h2>Search Results</h2>
+    </div>
+    <div class="row"></div>
 
+    <div class="sixteen columns">
 
-<% @songs.each do |song|%>
-    <div class="twelve columns">
+        <% @songs.each do |song|%>
 
-        <div class="ten columns">
-            <h2><%= song[:title] %></h2>
-            <h4><%= song[:artist_name] %></h4>
-        </div>
+            <div class="eleven columns alpha">
+                <h4><%= song[:title] %></h4>
+                <h5><%= song[:artist_name] %></h5>
+            </div>
 
-        <img src="<%= song[:artwork_link] %>" alt="">
-       
-        <form action="/songs/save" method="post">
-            <%= token_tag %>
-            <input type="hidden" name="track_id" value="<%= song[:itunes_song_id] %>">
-            <button type="submit">Save</button>
-        </form>
+            <div class="five columns omega">
+                <img src="<%= song[:artwork_link] %>" alt="">
+
+                <form action="/songs/save" method="post">
+                    <%= token_tag %>
+                    <input type="hidden" name="track_id" value="<%= song[:itunes_song_id] %>">
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+
+        <% end %>
 
     </div>
-
-<% end %>
-
-
 
 
 </div>
