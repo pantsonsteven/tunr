@@ -1,7 +1,35 @@
+<div class="container">
+
 <h1>Tunr</h1>
-<div class="six columns">
+<h3>Welcome <%= @current_listener.username %></h3>
+
+<div class="twelve columns">
     <form action="/songs/search" method="get">
         <input type="text" name='search_term' placeholder='...search for song'>
         <input type="submit">
     </form>
+</div>
+
+<% @songs.each do |song| %>
+
+<div class="six columns">
+    <img src="<%= song.artwork_link %>">
+
+    <h3><%= song.title %></h3>
+    <h5><%= song.artist_name %></h5>
+
+    <audio controls src="<%= song.preview_link %>"></audio>
+
+    <form action="/songs/<%= song.id %>" method="post">
+        <%= token_tag %>
+        <input type="hidden" name="_method" value="delete">
+        <button type = 'submit'>
+            <i class='fa fa-trash-o'></i>
+        </button>
+    </form>
+</div>
+
+<% end %>
+
+
 </div>
