@@ -37,7 +37,7 @@ class Song < ActiveRecord::Base
       title: raw_song['trackName'],
       album: raw_song['collectionName'],
       genre: raw_song['primaryGenreName'],
-      preview_link: raw_song['preview_url'],
+      preview_link: raw_song['previewUrl'],
       artwork_link: raw_song['artworkUrl100'],
       artist_name: raw_song['artistName']
     }
